@@ -1,0 +1,22 @@
+{
+  "name": "api-hotel-tech-repository",
+  "version": "0.0.1",
+  "description": "Api de repositório para a api serveless aws-lambda hotel-tech",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejmeri/api-hotel-tech-repository.git"
+  },
+  "author": "Elmeri Silva <ejmeri@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejmeri/api-hotel-tech-repository/issues"
+  },
+  "homepage": "https://github.com/ejmeri/api-hotel-tech-repository#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
