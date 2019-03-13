@@ -17,6 +17,14 @@
   },
   "homepage": "https://github.com/ejmeri/api-hotel-tech-repository#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "bcrypt": "^3.0.4",
+    "consign": "^0.1.6",
+    "express": "^4.16.4",
+    "pg": "^7.8.2",
+    "sequelize": "^4.43.0"
+  },
+  "devDependencies": {
+    "apidoc": "^0.15.1",
+    "mysql2": "^1.6.5"
   }
 }
