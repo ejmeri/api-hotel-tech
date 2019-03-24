@@ -10,7 +10,8 @@ if (!global.hasOwnProperty('db')) {
         Sequelize: Sequelize,
         sequelize: sequelize,
 
-        Gender: sequelize.import('../../../../contexts/gender/schemas/Gender.js')
+        Gender: sequelize.import('../../../../contexts/gender/schemas/Gender.js'),
+        Status: sequelize.import('../../../../contexts/status/schemas/Status.js')
     }
 }
 
