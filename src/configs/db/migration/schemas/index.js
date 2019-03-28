@@ -14,7 +14,10 @@ if (!global.hasOwnProperty('db')) {
         Status: sequelize.import('../../../../contexts/status/schemas/Status.js'),
         PeopleType: sequelize.import('../../../../contexts/people/schemas/PeopleType.js'),
         Occupation: sequelize.import('../../../../contexts/people/schemas/Occupation.js'),
-        WrappingOrganization: sequelize.import('../../../../contexts/documentation/schemas/WrappingOrganization.js')
+        WrappingOrganization: sequelize.import('../../../../contexts/documentation/schemas/WrappingOrganization.js'),
+        Country: sequelize.import('../../../../contexts/address/schemas/Country.js'),
+        AddressType: sequelize.import('../../../../contexts/address/schemas/AddressType.js'),
+        TelephoneType: sequelize.import('../../../../contexts/telephone/schemas/TelephoneType.js')
     }
 }
 
