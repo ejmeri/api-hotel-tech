@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     db_name: 'db_wg_hotel',
     username: 'root',
     password: '', 
