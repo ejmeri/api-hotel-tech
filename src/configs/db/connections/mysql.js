@@ -1,5 +1,5 @@
 module.exports = {
-    db_name: 'db_wg_hotel',
+    db_name: 'wg_hotel',
     username: 'root',
     password: '', 
     params: {
