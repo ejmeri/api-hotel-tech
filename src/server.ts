@@ -1,6 +1,15 @@
-import app from "./app";
-const PORT = 3000;
+import { createServer } from 'http';
+import app from './app';
+import { sequelize } from './config/migration/index';
 
-app.listen(PORT, () => {
-    console.log('Express server listening on port ' + PORT);
-})
+const port = process.env.PORT || 8080;
+
+(async () => {
+    await sequelize.sync({});
+
+    createServer(app)
+        .listen(
+            port,
+            () => console.info(`Server running on port ${port}`)
+        );
+})();

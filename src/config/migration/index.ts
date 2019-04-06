@@ -1,5 +1,13 @@
 import { Sequelize } from 'sequelize-typescript';
+import { Op } from 'sequelize';
+import { Status } from '../../business/status/models/Status';
 
-const sequelize = new Sequelize('wg-hotel', 'root', '');
+export const sequelize = new Sequelize({
+  dialect: 'mysql',
+  operatorsAliases: Op,
+  database: 'wg_hotel',
+  username: 'root',
+  password: ''
+});
 
-sequelize.addModels([__dirname + '../../bussiness/status/models/Status.ts']);
+sequelize.addModels([Status]);

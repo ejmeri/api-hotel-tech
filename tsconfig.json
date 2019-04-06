@@ -8,7 +8,9 @@
         "outDir": "build",
         "baseUrl": "./src",
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "esModuleInterop": false,
+        "skipLibCheck": true
     },
     "include": [
         "src/**/*.ts"
