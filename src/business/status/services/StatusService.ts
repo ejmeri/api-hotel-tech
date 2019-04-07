@@ -12,7 +12,13 @@ export class StatusService {
     private readonly statusRepository: StatusRepository;
 
     public async save(status: Status): Promise<any> {
-        Status.validate(status);
-        return await this.statusRepository.save(status);
+        var error = Status.validate(status);
+
+        if (error)
+            return getResultOrError(undefined, error);
+
+        var response = await this.statusRepository.save(status);
+
+        return getResultOrError(response);
     }
 }

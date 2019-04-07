@@ -13,7 +13,6 @@ export class StatusController {
     public register(app: Application): void {
         app.route('/status')
             .post((req: Request, res: Response) => {
-                console.log('to aqui mae');
                 this.statusService.save(req.body as Status)
                     .then(ret => (res.send(ret)))
                     .catch(err => (res.send(err)));

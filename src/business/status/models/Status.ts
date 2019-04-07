@@ -14,9 +14,9 @@ export class Status extends Model<Status> {
   name: string;
 
 
-  static validate(status: Status): Error {
+  static validate(status: Status): string {
     if (status.name == null)
-      return Error('Nome inválido');
+      return 'Nome inválido';
 
     return null;
   }

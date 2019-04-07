@@ -1,31 +1,27 @@
-export interface ApiReturn<T> {
-    return: T;
+export class ApiReturn {
+    return: any;
     success: boolean;
-    errorType: any;
     error: string;
+
+
 }
 
-const getResultOrError = <T>(response: any): T => {
+const getResultOrError = (response: any, error?: string): ApiReturn => {
+    var apiReturn = new ApiReturn();
 
-    if (!response)
-        throw Error('response is null');
-
-    const data = response.data;
-
-    if (!data)
-        throw Error('data is null');
-
-    const apiReturn = data as ApiReturn<T>;
-
-    if (!apiReturn)
-        throw Error('apiReturn is null');
-
-    if (apiReturn.success) {
-        return apiReturn.return;
+    if (error) {
+        apiReturn.error = error;
+        apiReturn.success = false;
+        apiReturn.return = response == null ? null : response;
     }
-    else {
-        throw new Error(apiReturn.error);
+
+    if (response) {
+        apiReturn.error = null;
+        apiReturn.success = true;
+        apiReturn.return = response == null ? null : response;
     }
+
+    return apiReturn;
 }
 
 export { getResultOrError }
