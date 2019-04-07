@@ -22,7 +22,9 @@ export class StatusService {
         return getResultOrError(response);
     }
 
-    public async findAll(): Promise<Status[]> {
-        return await this.statusRepository.findAll();
+    public async findAll(): Promise<any> {
+        var response = await this.statusRepository.findAll();
+
+        return getResultOrError(response);
     }
 }

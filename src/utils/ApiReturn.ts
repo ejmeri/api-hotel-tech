@@ -13,9 +13,7 @@ const getResultOrError = (response: any, error?: string): ApiReturn => {
         apiReturn.error = error;
         apiReturn.success = false;
         apiReturn.return = response == null ? null : response;
-    }
-
-    if (response) {
+    } else {
         apiReturn.error = null;
         apiReturn.success = true;
         apiReturn.return = response == null ? null : response;

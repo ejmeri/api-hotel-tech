@@ -5,10 +5,10 @@ import { injectable } from "inversify";
 export class StatusRepository {
 
     public async save(status: Status): Promise<Status> {
-        return Status.create(status);
+        return await Status.create(status);
     }
 
     public async findAll(): Promise<Status[]> {
-        return Status.findAll();
+        return await Status.findAll();
     }
 }

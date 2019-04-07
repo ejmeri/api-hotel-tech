@@ -17,5 +17,11 @@ export class StatusController {
                     .then(ret => (res.send(ret)))
                     .catch(err => (res.send(err)));
             });
+        app.route('/status')
+            .get((req: Request, res: Response) => {
+                this.statusService.findAll()
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err));
+            })
     }
 }

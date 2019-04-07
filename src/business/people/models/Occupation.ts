@@ -1,4 +1,5 @@
-import { Model, PrimaryKey, AutoIncrement, Column, AllowNull, Table } from "sequelize-typescript";
+import { Model, PrimaryKey, AutoIncrement, Column, AllowNull, Table, HasMany } from "sequelize-typescript";
+import { People } from "./People";
 
 @Table({ timestamps: true, tableName: 'Occupation' })
 export class Occupation extends Model<Occupation> {
@@ -11,6 +12,9 @@ export class Occupation extends Model<Occupation> {
     @AllowNull(false)
     @Column
     name: string;
+
+    @HasMany(() => People)
+    peoples: People[];
 
     static validate(occupation: Occupation): string {
         if (occupation.name == null)
