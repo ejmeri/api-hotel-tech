@@ -1,4 +1,4 @@
-import { Table, Column, Model, PrimaryKey, AutoIncrement, AllowNull } from 'sequelize-typescript';
+import { Table, Column, Model, PrimaryKey, AutoIncrement, AllowNull, BeforeCreate } from 'sequelize-typescript';
 // import { DataTypes } from 'sequelize';
 
 @Table({ timestamps: true, tableName: 'Status' })
@@ -13,10 +13,12 @@ export class Status extends Model<Status> {
   @Column
   name: string;
 
-}
 
-function validate(): void {
-  if (this.name == undefined) {
-    throw 'Nome inválido.';
+  static validate(status: Status): Error {
+    if (status.name == null)
+      return Error('Nome inválido');
+
+    return null;
   }
+
 }

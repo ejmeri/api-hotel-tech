@@ -23,8 +23,6 @@ class App {
 
         container.get<StatusController>(TYPES.StatusController).register(this.app);
         container.get<ControllerTeste>(TYPES.ControllerTeste).register(this.app);
-
-        console.log('aquio estou')
     }
 
 }
