@@ -1,6 +1,6 @@
 import { createServer } from 'http';
 import app from './app';
-import { sequelize } from './config/migration/index';
+import { sequelize } from './config/index';
 
 const port = process.env.PORT || 8080;
 

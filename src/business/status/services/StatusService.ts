@@ -2,7 +2,7 @@ import { injectable, inject } from "inversify";
 import { StatusRepository } from "../repositories/StatusRepository";
 import { Status } from "../models/Status";
 import { TYPES } from "../../../config/types";
-import { getResultOrError } from "../../../util/ApiReturn";
+import { getResultOrError } from "../../../utils/ApiReturn";
 
 
 @injectable()
@@ -20,5 +20,9 @@ export class StatusService {
         var response = await this.statusRepository.save(status);
 
         return getResultOrError(response);
+    }
+
+    public async findAll(): Promise<Status[]> {
+        return await this.statusRepository.findAll();
     }
 }
