@@ -1,4 +1,4 @@
-import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
+import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo, DataType } from "sequelize-typescript";
 import { Occupation } from "./Occupation";
 
 
@@ -10,7 +10,7 @@ export class People extends Model<People> {
     @Column
     id: number;
 
-    @Column
+    @Column(DataType.STRING(120))
     name: string;
 
     @Column
@@ -22,4 +22,12 @@ export class People extends Model<People> {
 
     // @BelongsTo(() => Occupation)
     // occupation: Occupation;
+
+
+    static validate(people: People): string {
+        if (people.name == null)
+            return "Nome inválido."
+
+        return null;
+    }
 }

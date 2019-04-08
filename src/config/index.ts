@@ -12,7 +12,9 @@ export const sequelize = new Sequelize({
   operatorsAliases: Op,
   database: 'wg_hotel',
   username: 'root',
-  password: ''
+  password: 'root',
+  host: 'localhost',
+  port: 3306
 });
 
 sequelize.addModels([Status]);
