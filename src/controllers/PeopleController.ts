@@ -1,8 +1,8 @@
 import { injectable, inject } from "inversify";
-import { TYPES } from "config/types";
-import { PeopleService } from "business/people/services/PeopleService";
+import { TYPES } from "../config/types";
+import { PeopleService } from "../business/people/services/PeopleService";
 import { Application, Request, Response } from "express";
-import { People } from "business/people/models/People";
+import { People } from "../business/people/models/People";
 
 
 @injectable()

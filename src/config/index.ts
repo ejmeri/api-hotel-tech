@@ -6,6 +6,7 @@ import { PeopleType } from '../business/people/models/PeopleType';
 import { AddressType } from '../business/address/models/AddressType';
 import { Country } from '../business/address/models/Country';
 import { People } from '../business/people/models/People';
+import { TelephoneType } from '../business/telephone/models/TelephoneType';
 
 export const sequelize = new Sequelize({
   dialect: 'mysql',
@@ -21,6 +22,6 @@ sequelize.addModels([Status]);
 sequelize.addModels([PeopleType]);
 sequelize.addModels([AddressType]);
 sequelize.addModels([Country]);
-
+sequelize.addModels([TelephoneType]);
 sequelize.addModels([People]);
 sequelize.addModels([Occupation]);

@@ -1,7 +1,7 @@
 import { injectable, inject } from "inversify";
 import { People } from "../models/People";
-import { TYPES } from "config/types";
-import { getResultOrError } from "utils/ApiReturn";
+import { TYPES } from "../../../config/types";
+import { getResultOrError } from "../../../utils/ApiReturn";
 import { PeopleRepository } from "../repositories/PeopleRepository";
 
 

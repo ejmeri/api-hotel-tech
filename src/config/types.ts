@@ -8,5 +8,8 @@ export const TYPES = {
 
     PeopleController: Symbol('PeopleController'),
     PeopleService: Symbol('PeopleService'),
-    PeopleRepository: Symbol('PeopleRepository')
+    PeopleRepository: Symbol('PeopleRepository'),
+
+    TelephoneTypeService: Symbol('TelephoneTypeService'),
+    TelephoneTypeRepository: Symbol('TelephoneTypeRepository')
 }
