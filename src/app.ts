@@ -5,6 +5,7 @@ import { TYPES } from "./config/types";
 
 import { StatusController } from "./controllers/StatusController";
 import { ControllerTeste } from "./controllers/ControllerTeste";
+import { PeopleController } from "controllers/PeopleController";
 
 class App {
 
@@ -23,6 +24,7 @@ class App {
 
         container.get<StatusController>(TYPES.StatusController).register(this.app);
         container.get<ControllerTeste>(TYPES.ControllerTeste).register(this.app);
+        container.get<PeopleController>(TYPES.PeopleController).register(this.app);
     }
 
 }

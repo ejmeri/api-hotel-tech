@@ -18,6 +18,9 @@ export class PeopleController {
 
     public register(app: Application): void {
         app.route('/people')
+            .get((req: Request, res: Response) => {
+                res.send('Olá pessoa, tudo bem?');
+            })
             .post((req: Request, res: Response) => {
                 this.peopleService.save(req.body as People)
                     .then(ret => (res.send(ret)))
