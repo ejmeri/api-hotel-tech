@@ -13,7 +13,7 @@ export class PeopleController {
     @inject(TYPES.PeopleService)
     private readonly peopleService: PeopleService;
 
-    @inject(TYPES.TelephoneTypeService)
+    @inject(TYPES.TelephoneService)
     private readonly telephoneService: TelephoneService;
 
     public register(app: Application): void {

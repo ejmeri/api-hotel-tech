@@ -8,7 +8,7 @@ import { getResultOrError } from "../../../utils/ApiReturn";
 @injectable()
 export class TelephoneService {
 
-    @inject(TYPES.TelephoneTypeService)
+    @inject(TYPES.TelephoneRepository)
     private readonly telephoneRepository: TelephoneRepository;
 
     public async saveTelephoneType(telephoneType:  TelephoneType): Promise<any> {

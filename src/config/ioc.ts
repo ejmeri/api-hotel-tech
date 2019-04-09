@@ -29,11 +29,11 @@ container.bind<PeopleController>(TYPES.PeopleController).to(PeopleController);
 // RESOLVER SERVICES
 container.bind<StatusService>(TYPES.StatusService).to(StatusService);
 container.bind<PeopleService>(TYPES.PeopleService).to(PeopleService);
-container.bind<TelephoneService>(TYPES.TelephoneTypeService).to(TelephoneService);
+container.bind<TelephoneService>(TYPES.TelephoneService).to(TelephoneService);
 
 // RESOLVE REPOSITORIES
 container.bind<StatusRepository>(TYPES.StatusRepository).to(StatusRepository);
 container.bind<PeopleRepository>(TYPES.PeopleRepository).to(PeopleRepository);
-container.bind<TelephoneRepository>(TYPES.TelephoneTypeRepository).to(TelephoneRepository);
+container.bind<TelephoneRepository>(TYPES.TelephoneRepository).to(TelephoneRepository);
 
 export default container;

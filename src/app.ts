@@ -5,7 +5,7 @@ import { TYPES } from "./config/types";
 
 import { StatusController } from "./controllers/StatusController";
 import { ControllerTeste } from "./controllers/ControllerTeste";
-import { PeopleController } from "controllers/PeopleController";
+import { PeopleController } from "./controllers/PeopleController";
 
 class App {
 
