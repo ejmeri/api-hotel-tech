@@ -1,5 +1,7 @@
-import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo, DataType } from "sequelize-typescript";
+import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo, DataType, HasMany } from 'sequelize-typescript';
 import { Occupation } from "./Occupation";
+import { AddressPeople } from '../../address/models/AddressPeople';
+import { TelephonePeople } from '../../telephone/models/TelephonePeople';
 
 
 @Table({ timestamps: true, tableName: 'People' })
@@ -23,6 +25,11 @@ export class People extends Model<People> {
     // @BelongsTo(() => Occupation)
     // occupation: Occupation;
 
+    @HasMany(() => AddressPeople)
+    peoples: AddressPeople[];
+
+    @HasMany(() => TelephonePeople)
+    telephonePeoples: TelephonePeople[];
 
     static validate(people: People): string {
         if (people.name == null)
