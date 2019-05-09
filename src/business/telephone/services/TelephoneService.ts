@@ -3,6 +3,7 @@ import { TelephoneRepository } from "../repositories/TelephoneRepository";
 import { TelephoneType } from "../models/TelephoneType";
 import { TYPES } from "../../../config/types";
 import { getResultOrError } from "../../../utils/ApiReturn";
+import { TelephonePeople } from '../models/TelephonePeople';
 
 
 @injectable()
@@ -18,6 +19,17 @@ export class TelephoneService {
             return getResultOrError(undefined, error);
 
         var response = await this.telephoneRepository.save(telephoneType);
+
+        return getResultOrError(response);
+    }
+
+    public async saveTelephonePeople(telephonePeople: TelephonePeople): Promise<any> {
+        var error = TelephonePeople.validate(telephonePeople);
+
+        if(error)
+            return getResultOrError(undefined, error);
+
+        var response = await this.telephoneRepository.saveTelephonePeople(telephonePeople);
 
         return getResultOrError(response);
     }

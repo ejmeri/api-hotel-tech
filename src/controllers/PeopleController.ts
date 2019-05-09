@@ -5,6 +5,7 @@ import { Application, Request, Response } from "express";
 import { People } from "../business/people/models/People";
 import { TelephoneService } from "../business/telephone/services/TelephoneService";
 import { TelephoneType } from "../business/telephone/models/TelephoneType";
+import { TelephonePeople } from '../business/telephone/models/TelephonePeople';
 
 
 @injectable()
@@ -24,19 +25,25 @@ export class PeopleController {
             .post((req: Request, res: Response) => {
                 this.peopleService.save(req.body as People)
                     .then(ret => (res.send(ret)))
-                    .catch(err => (res.send(err)));
+                    .catch(err => (res.send(err).status(401)));
             });
         app.route('/people/:id')
             .get((req: Request, res: Response) => {
                 this.peopleService.findById(req.params.id)
                     .then(ret => res.send(ret))
-                    .catch(err => res.send(err));
+                    .catch(err => res.send(err).status(401));
             });
         app.route('/telephonetype')
             .post((req: Request, res: Response) => {
                 this.telephoneService.saveTelephoneType(req.body as TelephoneType)
                     .then(ret => res.send(ret))
-                    .catch(err => res.send(err));
+                    .catch(err => res.send(err).status(401));
+            });
+        app.route('/telephone')
+            .post((req: Request, res: Response) => {
+                this.telephoneService.saveTelephonePeople(req.body as TelephonePeople)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
             });
 
     }

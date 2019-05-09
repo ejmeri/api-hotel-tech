@@ -11,5 +11,8 @@ export const TYPES = {
     PeopleRepository: Symbol('PeopleRepository'),
 
     TelephoneService: Symbol('TelephoneService'),
-    TelephoneRepository: Symbol('TelephoneRepository')
+    TelephoneRepository: Symbol('TelephoneRepository'),
+
+    AddressPeopleRepository: Symbol('AddressPeopleRepository'),
+    AddressPeopleService: Symbol('AddressPeopleService')
 }

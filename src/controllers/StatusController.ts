@@ -15,13 +15,13 @@ export class StatusController {
             .post((req: Request, res: Response) => {
                 this.statusService.save(req.body as Status)
                     .then(ret => (res.send(ret)))
-                    .catch(err => (res.send(err)));
+                    .catch(err => (res.send(err).status(401)));
             });
         app.route('/status')
             .get((req: Request, res: Response) => {
                 this.statusService.findAll()
                     .then(ret => res.send(ret))
-                    .catch(err => res.send(err));
+                    .catch(err => res.send(err).status(401));
             })
     }
 }
