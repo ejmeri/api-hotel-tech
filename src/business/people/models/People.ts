@@ -15,6 +15,12 @@ export class People extends Model<People> {
     @Column(DataType.STRING(120))
     name: string;
 
+    @Column(DataType.STRING(11))
+    cpf: string;
+
+    @Column(DataType.STRING(10))
+    rg: string;
+
     @Column
     birth: Date;
 
@@ -33,7 +39,10 @@ export class People extends Model<People> {
 
     static validate(people: People): string {
         if (people.name == null)
-            return "Nome inválido."
+            return "Nome inválido.";
+
+        if (people.cpf == null)
+            return 'CPF inválido.';
 
         return null;
     }

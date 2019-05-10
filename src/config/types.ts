@@ -14,5 +14,7 @@ export const TYPES = {
     TelephoneRepository: Symbol('TelephoneRepository'),
 
     AddressPeopleRepository: Symbol('AddressPeopleRepository'),
-    AddressPeopleService: Symbol('AddressPeopleService')
+    AddressPeopleService: Symbol('AddressPeopleService'),
+
+    EmployeeController: Symbol('EmployeeController')
 }

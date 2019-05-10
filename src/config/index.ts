@@ -10,6 +10,8 @@ import { TelephoneType } from '../business/telephone/models/TelephoneType';
 import local from './environment';
 import { AddressPeople } from '../business/address/models/AddressPeople';
 import { TelephonePeople } from '../business/telephone/models/TelephonePeople';
+import { Role } from '../business/employee/models/Role';
+import { Employee } from '../business/employee/models/Employee';
 
 export const sequelize = new Sequelize({
   operatorsAliases: Op,
@@ -30,3 +32,6 @@ sequelize.addModels([TelephonePeople]);
 sequelize.addModels([People]);
 sequelize.addModels([TelephoneType]);
 sequelize.addModels([Occupation]);
+sequelize.addModels([Employee]);
+sequelize.addModels([Role]);
+

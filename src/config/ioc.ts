@@ -21,6 +21,7 @@ import { StatusRepository } from '../business/status/repositories/StatusReposito
 import { PeopleRepository } from '../business/people/repositories/PeopleRepository';
 import { TelephoneRepository } from '../business/telephone/repositories/TelephoneRepository';
 import { AddressPeopleRepository } from '../business/address/repositories/AddressPeopleRepository';
+import { EmployeeController } from '../controllers/EmployeeController';
 
 const container = new Container();
 
@@ -28,6 +29,7 @@ const container = new Container();
 container.bind<ControllerTeste>(TYPES.ControllerTeste).to(ControllerTeste);
 container.bind<StatusController>(TYPES.StatusController).to(StatusController);
 container.bind<PeopleController>(TYPES.PeopleController).to(PeopleController);
+container.bind<EmployeeController>(TYPES.EmployeeController).to(EmployeeController);
 
 // RESOLVER SERVICES
 container.bind<StatusService>(TYPES.StatusService).to(StatusService);
