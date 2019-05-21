@@ -12,6 +12,11 @@ import { AddressPeople } from '../business/address/models/AddressPeople';
 import { TelephonePeople } from '../business/telephone/models/TelephonePeople';
 import { Role } from '../business/employee/models/Role';
 import { Employee } from '../business/employee/models/Employee';
+import { User } from '../business/people/models/User';
+import { Booking } from '../business/booking/models/Booking';
+import { PaymentMethod } from '../business/payment/models/PaymentMethod';
+import { BedroomType } from '../business/bedroom/models/BedroomType';
+import { Bedroom } from '../business/bedroom/models/Bedroom';
 
 export const sequelize = new Sequelize({
   operatorsAliases: Op,
@@ -30,8 +35,15 @@ sequelize.addModels([Country]);
 sequelize.addModels([AddressPeople]);
 sequelize.addModels([TelephonePeople]);
 sequelize.addModels([People]);
+sequelize.addModels([User]);
 sequelize.addModels([TelephoneType]);
 sequelize.addModels([Occupation]);
 sequelize.addModels([Employee]);
 sequelize.addModels([Role]);
+sequelize.addModels([User]);
+sequelize.addModels([Booking]);
+sequelize.addModels([PaymentMethod]);
+sequelize.addModels([Bedroom]);
+sequelize.addModels([BedroomType]);
+
 

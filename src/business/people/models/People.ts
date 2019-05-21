@@ -2,6 +2,7 @@ import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo,
 import { Occupation } from "./Occupation";
 import { AddressPeople } from '../../address/models/AddressPeople';
 import { TelephonePeople } from '../../telephone/models/TelephonePeople';
+import { User } from './User';
 
 
 @Table({ timestamps: true, tableName: 'People' })
@@ -24,9 +25,23 @@ export class People extends Model<People> {
     @Column
     birth: Date;
 
+    @Column
+    nationality: string;
+
+    @Column
+    deficient: boolean;
+
+    @Column
+    defiecientDocumentation: string;
+
     @ForeignKey(() => Occupation)
     @Column
     occupationId: number;
+
+    
+    @ForeignKey(() => User)
+    @Column
+    userId: number;
 
     // @BelongsTo(() => Occupation)
     // occupation: Occupation;

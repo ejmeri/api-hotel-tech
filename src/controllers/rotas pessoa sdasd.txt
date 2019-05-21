@@ -1,0 +1,64 @@
+quarto
+    - reserva (check in/check out) -> tipo pagamento -> outra model (cartao cred/debito, cheque, dinheiro, transferencia)
+    - tipo
+    - numero
+    - status (ocupado, livre, interditado, limpando)
+    - valor diaria
+    - caso ocupado, interditado - até quando?
+    - caso esteja disponpivel, quando é a próxima reserva
+    - reserva -> qtd de adultos e criancas
+
+produto_reserva_quarto
+    - id
+    - qtd_utilizada
+
+produto
+    - id
+    - nome
+    - price
+    - estoq (max, atual, min)
+
+funcionario
+    - nome
+    - cargo -> outro model
+
+pessoa
+    - nome completo
+    - birth
+    - id
+    - cpf
+    - sexo
+    - telefone
+    - prof
+    - deficiente -> caso sim -> aprensentar doc -> n -> n
+    - nationality
+    - endereco - outra model (com cidade, estado, pais)
+
+
+usuario_funcionario = usuario_cliente
+    - username
+    - password
+
+
+check in -> abre reserva
+check out -> fecha reserva
+
+ ## rotas ##
+
+quarto
+    - quartos (todos)
+    - lista de produto associada ao quarto (produto_reserva_quarto)
+
+reserva
+    - efetuar reserva
+    - check in/check out
+    - visualizar reserva (com usuario, status_usuario (hospedado), meio de pagamento, status do check in/out)
+
+pessoa 
+    - cadastrar
+    - editar
+    - visualizar (por id, cpf)
+
+
+
+
