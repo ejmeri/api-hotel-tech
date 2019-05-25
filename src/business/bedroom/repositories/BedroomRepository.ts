@@ -10,24 +10,26 @@ export class BedroomRepository {
     }
 
     public async findByNumber(number: string): Promise<Bedroom> {
-        return await Bedroom.findOne({ where: { number: number } });
+        return await Bedroom.findOne({  include: [BedroomType], where: { number: number } });
     }
 
     public async findById(id: number): Promise<Bedroom> {
-        return await Bedroom.findOne({ where: { id: id } });
+        return await Bedroom.findOne({  include: [BedroomType], where: { id: id } });
     }
 
     public async findByTypeId(typeId: number): Promise<Bedroom> {
-        return await Bedroom.findOne({ include: [BedroomType],  where: { bedroomTypeId: typeId }});
+        return await Bedroom.findOne({ include: [BedroomType], where: { bedroomTypeId: typeId } });
+    }
+
+    public async findByStatus(status: string): Promise<Bedroom> {
+        return await Bedroom.findOne({ include: [BedroomType], where: { status: status } });
     }
 
     public async save(bedroom: Bedroom): Promise<Bedroom> {
         return await Bedroom.create(bedroom);
     }
 
-    // public async update(id: number, bedroom: Bedroom): Promise<Bedroom> {
-    //     var _bedroom = await Bedroom.findOne({ where: { id: id }});
-
-    //     return  _bedroom.update(bedroom);
-    // }
+    public async update(id: number, bedroom: Bedroom): Promise<any> {
+        return await Bedroom.update({ bedroom }, { where: { id: id } });
+    }
 }

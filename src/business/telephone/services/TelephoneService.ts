@@ -12,11 +12,11 @@ export class TelephoneService {
     @inject(TYPES.TelephoneRepository)
     private readonly telephoneRepository: TelephoneRepository;
 
-    public async saveTelephoneType(telephoneType:  TelephoneType): Promise<any> {
+    public async saveTelephoneType(telephoneType: TelephoneType): Promise<any> {
         var error = TelephoneType.validate(telephoneType);
 
         if (error)
-            return getResultOrError(undefined, error);
+            throw getResultOrError(undefined, error);
 
         var response = await this.telephoneRepository.save(telephoneType);
 
@@ -26,8 +26,8 @@ export class TelephoneService {
     public async saveTelephonePerson(telephonePerson: TelephonePerson): Promise<any> {
         var error = TelephonePerson.validate(telephonePerson);
 
-        if(error)
-            return getResultOrError(undefined, error);
+        if (error)
+            throw getResultOrError(undefined, error);
 
         var response = await this.telephoneRepository.saveTelephonePerson(telephonePerson);
 

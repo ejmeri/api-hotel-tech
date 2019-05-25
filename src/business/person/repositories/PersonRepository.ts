@@ -9,7 +9,15 @@ export class PersonRepository {
         return await Person.create(people);
     }
 
+    public async update(id: number, person: Person): Promise<any> {
+        return await Person.update({ person }, { where: { id: id } });
+    }
+
     public async findById(id: number): Promise<Person> {
         return await Person.findOne({ where: { id: id } });
+    }
+
+    public async findByDocument(document: string): Promise<Person> {
+        return await Person.findOne({ where: { document: document } });
     }
 }

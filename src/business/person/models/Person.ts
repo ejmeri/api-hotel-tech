@@ -16,8 +16,8 @@ export class Person extends Model<Person> {
     @Column(DataType.STRING(120))
     name: string;
 
-    @Column(DataType.STRING(11))
-    cpf: string;
+    @Column(DataType.STRING(14))
+    document: string;
 
     @Column(DataType.STRING(10))
     rg: string;
@@ -34,11 +34,14 @@ export class Person extends Model<Person> {
     @Column
     defiecientDocumentation: string;
 
+    @Column
+    status: string;
+
     // @ForeignKey(() => Occupation)
     // @Column
     occupationId: number;
 
-    
+
     // @ForeignKey(() => User)
     // @Column
     userId: number;
@@ -52,12 +55,15 @@ export class Person extends Model<Person> {
     // @HasMany(() => TelephonePeople)
     // telephonePeoples: TelephonePeople[];
 
-    static validate(people: Person): string {
-        if (people.name == null)
+    static validate(person: Person): string {
+        if (person.name == null)
             return "Nome inválido.";
 
-        if (people.cpf == null)
-            return 'CPF inválido.';
+        if (person.document == null)
+            return 'Documento inválido.';
+
+        if (person.deficient)
+            return 'Documento sobre deficiência é obrigatório';
 
         return null;
     }

@@ -15,7 +15,7 @@ export class PersonService {
         var error = Person.validate(person);
 
         if (error)
-            return getResultOrError(undefined, error);
+            throw getResultOrError(undefined, error);
 
         var response = await this.personRepository.save(person);
 
@@ -23,11 +23,33 @@ export class PersonService {
     }
 
     public async findById(id: number): Promise<any> {
-
         if (id == null)
-            return getResultOrError(undefined, 'Id inválido.');
+            throw getResultOrError(undefined, 'Id inválido.');
 
         var response = await this.personRepository.findById(id);
+
+        return getResultOrError(response);
+    }
+
+    public async findByDocument(document: string): Promise<any> {
+        if (document == null)
+            throw getResultOrError(undefined, 'Documento inválido.');
+
+        var response = await this.personRepository.findByDocument(document);
+
+        return getResultOrError(response);
+    }
+
+    public async update(id: number, person: Person): Promise<any> {
+        if (id == null)
+            throw getResultOrError(undefined, 'Id inválido.');
+
+        var error = Person.validate(person);
+
+        if (error)
+            return getResultOrError(undefined, error);
+
+        var response = await this.personRepository.update(id, person);
 
         return getResultOrError(response);
     }

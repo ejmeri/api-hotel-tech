@@ -15,7 +15,7 @@ export class StatusService {
         var error = Status.validate(status);
 
         if (error)
-            return getResultOrError(undefined, error);
+            throw getResultOrError(undefined, error);
 
         var response = await this.statusRepository.save(status);
 

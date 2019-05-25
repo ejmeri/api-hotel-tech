@@ -12,33 +12,43 @@ import { TelephonePerson } from '../business/telephone/models/TelephonePerson';
 export class PersonController {
 
     @inject(TYPES.PersonService)
-    private readonly peopleService: PersonService;
+    private readonly personService: PersonService;
 
     @inject(TYPES.TelephoneService)
     private readonly telephoneService: TelephoneService;
 
     public register(app: Application): void {
-        app.route('/people')
+        app.route('/person')
             .get((req: Request, res: Response) => {
                 res.send('Olá pessoa, tudo bem?');
             })
             .post((req: Request, res: Response) => {
-                this.peopleService.save(req.body as Person)
+                this.personService.save(req.body as Person)
                     .then(ret => (res.send(ret)))
                     .catch(err => (res.send(err).status(401)));
             });
-        app.route('/people/:id')
+
+        app.route('/person/:id')
             .get((req: Request, res: Response) => {
-                this.peopleService.findById(req.params.id)
+                this.personService.findById(req.params.id)
                     .then(ret => res.send(ret))
                     .catch(err => res.send(err).status(401));
             });
-        app.route('/telephonetype')
-            .post((req: Request, res: Response) => {
-                this.telephoneService.saveTelephoneType(req.body as TelephoneType)
+
+        app.route('/person/document/:document')
+            .get((req: Request, res: Response) => {
+                this.personService.findByDocument(req.params.document)
                     .then(ret => res.send(ret))
                     .catch(err => res.send(err).status(401));
             });
+
+        app.route('/person/:id')
+            .put((req: Request, res: Response) => {
+                this.personService.update(req.params.id, req.body as Person)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
         app.route('/telephone')
             .post((req: Request, res: Response) => {
                 this.telephoneService.saveTelephonePerson(req.body as TelephonePerson)

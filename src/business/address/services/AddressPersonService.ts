@@ -15,7 +15,7 @@ export class AddressPersonService {
         var error = AddressPerson.validate(addressPerson);
 
         if (error)
-            return getResultOrError(undefined, error);
+            throw getResultOrError(undefined, error);
 
         var response = await this.addressPersonRepository.save(addressPerson);
 

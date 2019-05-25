@@ -56,5 +56,7 @@ TelephonePerson.belongsTo(TelephoneType);
 Employee.belongsTo(Role);
 Booking.belongsTo(PaymentMethod);
 Bedroom.belongsTo(BedroomType);
+Booking.belongsTo(Person);
+Booking.belongsTo(Bedroom);
 
 

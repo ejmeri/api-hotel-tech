@@ -8,6 +8,7 @@ import { ControllerTeste } from "./controllers/ControllerTeste";
 import { PersonController } from "./controllers/PersonController";
 import { EmployeeController } from './controllers/EmployeeController';
 import { BedroomController } from './controllers/BedroomController';
+import { BookingController } from "./controllers/BookingController";
 
 class App {
 
@@ -29,6 +30,7 @@ class App {
         container.get<PersonController>(TYPES.PersonController).register(this.app);
         container.get<EmployeeController>(TYPES.EmployeeController).register(this.app);
         container.get<BedroomController>(TYPES.BedroomController).register(this.app);
+        container.get<BookingController>(TYPES.BookingController).register(this.app);
     }
 
 }

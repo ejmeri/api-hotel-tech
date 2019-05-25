@@ -17,8 +17,15 @@ export const TYPES = {
     AddressPersonService: Symbol('AddressPersonService'),
 
     EmployeeController: Symbol('EmployeeController'),
+    EmployeeRepository: Symbol('EmployeeRepository'),
+    EmployeeService: Symbol('EmployeeService'),
     
     BedroomController: Symbol('BedroomController'),
     BedroomService: Symbol('BedroomService'),
-    BedroomRepository: Symbol('BedroomRepository')
+    BedroomRepository: Symbol('BedroomRepository'),
+
+
+    BookingController: Symbol('BookingController'),
+    BookingService: Symbol('BookingService'),
+    BookingRepository: Symbol('BookingRepository')
 }
