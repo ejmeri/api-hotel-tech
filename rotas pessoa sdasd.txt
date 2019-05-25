@@ -8,6 +8,9 @@ quarto
     - caso esteja disponpivel, quando é a próxima reserva
     - reserva -> qtd de adultos e criancas
 
+about crud -> c, r (all, byId, byNumber, ByType), u. 
+
+
 produto_reserva_quarto
     - id
     - qtd_utilizada
@@ -18,10 +21,13 @@ produto
     - price
     - estoq (max, atual, min)
 
+about crud  -> c, r (all), u
+
 funcionario
     - nome
     - cargo -> outro model
 
+about crud -> r
 pessoa
     - nome completo
     - birth
@@ -34,6 +40,7 @@ pessoa
     - nationality
     - endereco - outra model (com cidade, estado, pais)
 
+about crud -> c, r, u
 
 usuario_funcionario = usuario_cliente
     - username

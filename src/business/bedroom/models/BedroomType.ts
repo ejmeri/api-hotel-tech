@@ -13,8 +13,8 @@ export class BedroomType extends Model<BedroomType> {
     @Column
     type: string;
 
-    @HasMany(() => Bedroom)
-    bedrooms: Bedroom[];
+    // @HasMany(() => Bedroom)
+    // bedrooms: Bedroom[];
 
     static validate(bedroom: BedroomType): string {
         if (bedroom.type == null)

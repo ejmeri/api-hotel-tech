@@ -7,6 +7,7 @@ import { StatusController } from "./controllers/StatusController";
 import { ControllerTeste } from "./controllers/ControllerTeste";
 import { PeopleController } from "./controllers/PeopleController";
 import { EmployeeController } from './controllers/EmployeeController';
+import { BedroomController } from './controllers/BedroomController';
 
 class App {
 
@@ -27,6 +28,7 @@ class App {
         container.get<ControllerTeste>(TYPES.ControllerTeste).register(this.app);
         container.get<PeopleController>(TYPES.PeopleController).register(this.app);
         container.get<EmployeeController>(TYPES.EmployeeController).register(this.app);
+        container.get<BedroomController>(TYPES.BedroomController).register(this.app);
     }
 
 }

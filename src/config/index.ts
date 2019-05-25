@@ -47,3 +47,6 @@ sequelize.addModels([Bedroom]);
 sequelize.addModels([BedroomType]);
 
 
+Bedroom.belongsTo(BedroomType);
+
+

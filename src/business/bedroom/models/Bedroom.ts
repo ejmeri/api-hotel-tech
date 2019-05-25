@@ -15,10 +15,12 @@ export class Bedroom extends Model<Bedroom> {
     @Column
     dayPrice: number;
 
-    @ForeignKey(() => BedroomType)
-    @Column
-    bedroomTypeId: number;
+    // @ForeignKey(() => BedroomType)
+    // @Column
+    // bedroomTypeId: number;
     
+    // @BelongsTo(() => BedroomType)
+    // bedroomType: BedroomType;
 
     static validate(bedroom: Bedroom): string {
         if (bedroom.dayPrice == null)
