@@ -17,7 +17,7 @@ export class Bedroom extends Model<Bedroom> {
 
     // @ForeignKey(() => BedroomType)
     // @Column
-    // bedroomTypeId: number;
+    bedroomTypeId: number;
     
     // @BelongsTo(() => BedroomType)
     // bedroomType: BedroomType;

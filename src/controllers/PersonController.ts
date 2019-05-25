@@ -1,18 +1,18 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "../config/types";
-import { PeopleService } from "../business/people/services/PeopleService";
+import { PersonService } from "../business/person/services/PersonService";
 import { Application, Request, Response } from "express";
-import { People } from "../business/people/models/People";
+import { Person } from "../business/person/models/Person";
 import { TelephoneService } from "../business/telephone/services/TelephoneService";
 import { TelephoneType } from "../business/telephone/models/TelephoneType";
-import { TelephonePeople } from '../business/telephone/models/TelephonePeople';
+import { TelephonePerson } from '../business/telephone/models/TelephonePerson';
 
 
 @injectable()
-export class PeopleController {
+export class PersonController {
 
-    @inject(TYPES.PeopleService)
-    private readonly peopleService: PeopleService;
+    @inject(TYPES.PersonService)
+    private readonly peopleService: PersonService;
 
     @inject(TYPES.TelephoneService)
     private readonly telephoneService: TelephoneService;
@@ -23,7 +23,7 @@ export class PeopleController {
                 res.send('Olá pessoa, tudo bem?');
             })
             .post((req: Request, res: Response) => {
-                this.peopleService.save(req.body as People)
+                this.peopleService.save(req.body as Person)
                     .then(ret => (res.send(ret)))
                     .catch(err => (res.send(err).status(401)));
             });
@@ -41,7 +41,7 @@ export class PeopleController {
             });
         app.route('/telephone')
             .post((req: Request, res: Response) => {
-                this.telephoneService.saveTelephonePeople(req.body as TelephonePeople)
+                this.telephoneService.saveTelephonePerson(req.body as TelephonePerson)
                     .then(ret => res.send(ret))
                     .catch(err => res.send(err).status(401));
             });

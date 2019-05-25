@@ -1,12 +1,12 @@
 import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo, DataType, HasMany } from 'sequelize-typescript';
 import { Occupation } from "./Occupation";
-import { AddressPeople } from '../../address/models/AddressPeople';
-import { TelephonePeople } from '../../telephone/models/TelephonePeople';
+// import { AddressPeople } from '../../address/models/AddressPerson';
+// import { TelephonePeople } from '../../telephone/models/TelephonePeople';
 import { User } from './User';
 
 
-@Table({ timestamps: true, tableName: 'People' })
-export class People extends Model<People> {
+@Table({ timestamps: true, tableName: 'Person' })
+export class Person extends Model<Person> {
 
     @PrimaryKey
     @AutoIncrement
@@ -34,25 +34,25 @@ export class People extends Model<People> {
     @Column
     defiecientDocumentation: string;
 
-    @ForeignKey(() => Occupation)
-    @Column
+    // @ForeignKey(() => Occupation)
+    // @Column
     occupationId: number;
 
     
-    @ForeignKey(() => User)
-    @Column
+    // @ForeignKey(() => User)
+    // @Column
     userId: number;
 
     // @BelongsTo(() => Occupation)
     // occupation: Occupation;
 
-    @HasMany(() => AddressPeople)
-    peoples: AddressPeople[];
+    // @HasMany(() => AddressPeople)
+    // peoples: AddressPeople[];
 
-    @HasMany(() => TelephonePeople)
-    telephonePeoples: TelephonePeople[];
+    // @HasMany(() => TelephonePeople)
+    // telephonePeoples: TelephonePeople[];
 
-    static validate(people: People): string {
+    static validate(people: Person): string {
         if (people.name == null)
             return "Nome inválido.";
 

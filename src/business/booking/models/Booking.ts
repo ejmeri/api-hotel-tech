@@ -19,8 +19,8 @@ export class Booking extends Model<Booking> {
     @Column
     checkOut: Date;
 
-    @ForeignKey(() => PaymentMethod)
-    @Column
+    // @ForeignKey(() => PaymentMethod)
+    // @Column
     paymentMethodId: number;
 
     static validate(booking: Booking): string {

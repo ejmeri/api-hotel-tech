@@ -13,16 +13,28 @@ export class Employee extends Model<Employee> {
     @Column
     name: string;
 
-    @ForeignKey(() => Role)
     @Column
+    username: string;
+
+    @Column
+    password: string;
+
+    // @ForeignKey(() => Role)
+    // @Column
     roleId: number;
 
 
 
-    static validate(occupation: Employee): string {
-        if (occupation.name == null)
+    static validate(employee: Employee): string {
+        if (employee.name == null)
             return 'Nome inválido';
 
+        if (employee.username == null)
+            return 'Nome de usuário inválido';
+
+        if (employee.password == null)
+            return 'Senha inválida';
+        
         return null;
     }
 }

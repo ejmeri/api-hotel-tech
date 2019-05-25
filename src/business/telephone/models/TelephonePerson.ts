@@ -1,11 +1,11 @@
 import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo, DataType } from "sequelize-typescript";
 import { TelephoneType } from "./TelephoneType";
-import { People } from "../../people/models/People";
+import { Person } from "../../person/models/Person";
 
 
 
-@Table({ timestamps: true, tableName: 'TelephonePeople' })
-export class TelephonePeople extends Model<TelephonePeople> {
+@Table({ timestamps: true, tableName: 'TelephonePerson' })
+export class TelephonePerson extends Model<TelephonePerson> {
 
     @PrimaryKey
     @AutoIncrement
@@ -15,21 +15,21 @@ export class TelephonePeople extends Model<TelephonePeople> {
     @Column(DataType.STRING(9))
     number: string;
 
-    @ForeignKey(() => TelephoneType)
-    @Column
+    // @ForeignKey(() => TelephoneType)
+    // @Column
     telephoneTypeId: number;
 
-    @ForeignKey(() => People)
-    @Column
-    peopleId: number;
+    // @ForeignKey(() => Person)
+    // @Column
+    personId: number;
 
 
     // @BelongsTo(() => Occupation)
     // occupation: Occupation;
 
 
-    static validate(telephonePeople: TelephonePeople): string {
-        if (telephonePeople.number == null)
+    static validate(telephonePerson: TelephonePerson): string {
+        if (telephonePerson.number == null)
             return "Número inválido."
 
         return null;

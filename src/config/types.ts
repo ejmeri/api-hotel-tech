@@ -6,15 +6,15 @@ export const TYPES = {
     StatusService: Symbol('StatusService'),
     StatusRepository: Symbol('StatusRepository'),
 
-    PeopleController: Symbol('PeopleController'),
-    PeopleService: Symbol('PeopleService'),
-    PeopleRepository: Symbol('PeopleRepository'),
+    PersonController: Symbol('PersonController'),
+    PersonService: Symbol('PersonService'),
+    PersonRepository: Symbol('PersonRepository'),
 
     TelephoneService: Symbol('TelephoneService'),
     TelephoneRepository: Symbol('TelephoneRepository'),
 
-    AddressPeopleRepository: Symbol('AddressPeopleRepository'),
-    AddressPeopleService: Symbol('AddressPeopleService'),
+    AddressPersonRepository: Symbol('AddressPersonRepository'),
+    AddressPersonService: Symbol('AddressPersonService'),
 
     EmployeeController: Symbol('EmployeeController'),
     

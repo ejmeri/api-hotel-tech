@@ -1,10 +1,10 @@
 import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo, DataType } from "sequelize-typescript";
-import { People } from "../../people/models/People";
+import { Person } from "../../person/models/Person";
 
 
 
-@Table({ timestamps: true, tableName: 'AddressPeople' })
-export class AddressPeople extends Model<AddressPeople> {
+@Table({ timestamps: true, tableName: 'AddressPerson' })
+export class AddressPerson extends Model<AddressPerson> {
 
     @PrimaryKey
     @AutoIncrement
@@ -17,16 +17,16 @@ export class AddressPeople extends Model<AddressPeople> {
     @Column(DataType.STRING(80))
     complement: string;
 
-    @ForeignKey(() => People)
-    @Column
-    peopleId: number;
+    // @ForeignKey(() => Person)
+    // @Column
+    personId: number;
 
 
     // @BelongsTo(() => Occupation)
     // occupation: Occupation;
 
 
-    static validate(addressPeople: AddressPeople): string {
+    static validate(addressPeople: AddressPerson): string {
         if (addressPeople.number == null)
             return "Número inválido."
 

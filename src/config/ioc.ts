@@ -7,21 +7,21 @@ import { TYPES } from './types';
 // CONTROLLERS
 import { ControllerTeste } from '../controllers/ControllerTeste';
 import { StatusController } from '../controllers/StatusController';
-import { PeopleController } from '../controllers/PeopleController';
+import { PersonController } from '../controllers/PersonController';
 import { EmployeeController } from '../controllers/EmployeeController';
 import { BedroomController } from '../controllers/BedroomController'; 
 
 // SERVICES
 import { StatusService } from '../business/status/services/StatusService';
-import { PeopleService } from '../business/people/services/PeopleService';
+import { PersonService } from '../business/person/services/PersonService';
 import { TelephoneService } from '../business/telephone/services/TelephoneService';
-import { AddressPeopleService } from '../business/address/services/AddressPeopleService';
+import { AddressPersonService } from '../business/address/services/AddressPersonService';
 import { BedroomService } from '../business/bedroom/services/BedroomService';
 // REPOSITORIES
 import { StatusRepository } from '../business/status/repositories/StatusRepository';
-import { PeopleRepository } from '../business/people/repositories/PeopleRepository';
+import { PersonRepository } from '../business/person/repositories/PersonRepository';
 import { TelephoneRepository } from '../business/telephone/repositories/TelephoneRepository';
-import { AddressPeopleRepository } from '../business/address/repositories/AddressPeopleRepository';
+import { AddressPersonRepository } from '../business/address/repositories/AddressPersonRepository';
 import { BedroomRepository } from '../business/bedroom/repositories/BedroomRepository';
 
 const container = new Container();
@@ -29,22 +29,22 @@ const container = new Container();
 // RESOLVER CONTROLLERS
 container.bind<ControllerTeste>(TYPES.ControllerTeste).to(ControllerTeste);
 container.bind<StatusController>(TYPES.StatusController).to(StatusController);
-container.bind<PeopleController>(TYPES.PeopleController).to(PeopleController);
+container.bind<PersonController>(TYPES.PersonController).to(PersonController);
 container.bind<EmployeeController>(TYPES.EmployeeController).to(EmployeeController);
 container.bind<BedroomController>(TYPES.BedroomController).to(BedroomController);
 
 // RESOLVER SERVICES
 container.bind<StatusService>(TYPES.StatusService).to(StatusService);
-container.bind<PeopleService>(TYPES.PeopleService).to(PeopleService);
+container.bind<PersonService>(TYPES.PersonService).to(PersonService);
 container.bind<TelephoneService>(TYPES.TelephoneService).to(TelephoneService);
-container.bind<AddressPeopleService>(TYPES.AddressPeopleService).to(AddressPeopleService);
+container.bind<AddressPersonService>(TYPES.AddressPersonService).to(AddressPersonService);
 container.bind<BedroomService>(TYPES.BedroomService).to(BedroomService);
 
 // RESOLVE REPOSITORIES
 container.bind<StatusRepository>(TYPES.StatusRepository).to(StatusRepository);
-container.bind<PeopleRepository>(TYPES.PeopleRepository).to(PeopleRepository);
+container.bind<PersonRepository>(TYPES.PersonRepository).to(PersonRepository);
 container.bind<TelephoneRepository>(TYPES.TelephoneRepository).to(TelephoneRepository);
-container.bind<AddressPeopleRepository>(TYPES.AddressPeopleRepository).to(AddressPeopleRepository);
+container.bind<AddressPersonRepository>(TYPES.AddressPersonRepository).to(AddressPersonRepository);
 container.bind<BedroomRepository>(TYPES.BedroomRepository).to(BedroomRepository);
 
 export default container;

@@ -13,8 +13,8 @@ export class Role extends Model<Role> {
     @Column
     name: string;
 
-    @HasMany(() => Employee)
-    employees: Employee[];
+    // @HasMany(() => Employee)
+    // employees: Employee[];
 
     static validate(occupation: Role): string {
         if (occupation.name == null)

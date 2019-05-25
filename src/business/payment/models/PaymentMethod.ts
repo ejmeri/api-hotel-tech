@@ -13,8 +13,8 @@ export class PaymentMethod extends Model<PaymentMethod> {
     @Column
     method: string;
 
-    @HasMany(() => Booking)
-    bookings: Booking[];
+    // @HasMany(() => Booking)
+    // bookings: Booking[];
 
     static validate(people: PaymentMethod): string {
         if (people.method == null)

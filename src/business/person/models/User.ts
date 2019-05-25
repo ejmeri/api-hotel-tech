@@ -1,5 +1,5 @@
 import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo, DataType, HasMany } from 'sequelize-typescript';
-import { People } from './People';
+import { Person } from './Person';
 
 
 @Table({ timestamps: true, tableName: 'User' })
@@ -16,8 +16,8 @@ export class User extends Model<User> {
     @Column
     password: string;
 
-    @HasMany(() => People)
-    peoples: People[];
+    // @HasMany(() => Person)
+    // peoples: Person[];
 
     static validate(people: User): string {
         if (people.username == null)

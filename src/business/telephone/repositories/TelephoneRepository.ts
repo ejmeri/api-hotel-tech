@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import { TelephoneType } from "../models/TelephoneType";
-import { TelephonePeople } from '../models/TelephonePeople';
+import { TelephonePerson } from '../models/TelephonePerson';
 
 @injectable()
 export class TelephoneRepository {
@@ -9,8 +9,8 @@ export class TelephoneRepository {
         return await TelephoneType.create(telephoneType);
     }
 
-    public async saveTelephonePeople(telephonePhone: TelephonePeople): Promise<TelephonePeople> {
-        return await TelephonePeople.create(telephonePhone);
+    public async saveTelephonePerson(telephonePhone: TelephonePerson): Promise<TelephonePerson> {
+        return await TelephonePerson.create(telephonePhone);
     }
 
     public async findAll(): Promise<TelephoneType[]> {

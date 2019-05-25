@@ -1,7 +1,7 @@
 import { Model, PrimaryKey, AutoIncrement, Column, AllowNull, Table } from "sequelize-typescript";
 
-@Table({ timestamps: true, tableName: 'PeopleType' })
-export class PeopleType extends Model<PeopleType> {
+@Table({ timestamps: true, tableName: 'PersonType' })
+export class PersonType extends Model<PersonType> {
 
     @PrimaryKey
     @AutoIncrement
@@ -12,9 +12,9 @@ export class PeopleType extends Model<PeopleType> {
     @Column
     name: string;
 
-    static validate(peopleType: PeopleType): string {
-        if (peopleType.name == null)
-            return 'Nome inválido';
+    static validate(personType: PersonType): string {
+        if (personType.name == null)
+            return 'Tipo de pessoa inválido';
 
         return null;
     }
