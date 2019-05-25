@@ -1,5 +1,5 @@
 import { Table, Model, PrimaryKey, AutoIncrement, Column, ForeignKey, BelongsTo, DataType, HasMany } from 'sequelize-typescript';
-import { Bedroom } from './bedroom';
+import { Bedroom } from './Bedroom';
 
 
 @Table({ timestamps: true, tableName: 'BedroomType' })
