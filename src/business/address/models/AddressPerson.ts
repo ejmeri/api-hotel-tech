@@ -11,6 +11,9 @@ export class AddressPerson extends Model<AddressPerson> {
     @Column
     id: number;
 
+    @Column(DataType.STRING(8))
+    zipcode: string;
+
     @Column(DataType.STRING(10))
     number: number;
 
@@ -21,14 +24,15 @@ export class AddressPerson extends Model<AddressPerson> {
     // @Column
     personId: number;
 
-
-    // @BelongsTo(() => Occupation)
-    // occupation: Occupation;
-
-
-    static validate(addressPeople: AddressPerson): string {
-        if (addressPeople.number == null)
+    static validate(addressPerson: AddressPerson): string {
+        if (addressPerson.number == null)
             return "Número inválido."
+
+        if (addressPerson.zipcode == null)
+            return "CEP inválido";
+
+        if (addressPerson.personId == null)
+            return 'Pessoa inválida';
 
         return null;
     }

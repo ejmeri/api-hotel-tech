@@ -37,6 +37,9 @@ export class Person extends Model<Person> {
     @Column
     status: string;
 
+    @Column
+    gender: string;
+
     // @ForeignKey(() => Occupation)
     // @Column
     occupationId: number;
