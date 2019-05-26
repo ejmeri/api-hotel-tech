@@ -1,5 +1,6 @@
 import { injectable } from "inversify";
 import { Person } from "../models/Person";
+import { Occupation } from "../models/Occupation";
 
 
 @injectable()
@@ -19,5 +20,9 @@ export class PersonRepository {
 
     public async findByDocument(document: string): Promise<Person> {
         return await Person.findOne({ where: { document: document } });
+    }
+
+    public async findAllOccupations(): Promise<Occupation[]> {
+        return await Occupation.findAll();
     }
 }
