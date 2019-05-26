@@ -40,6 +40,11 @@ export class PersonService {
         return getResultOrError(response);
     }
 
+    public async findAllOccupations(): Promise<any> {
+        var response = await this.personRepository.findAllOccupations();
+        return getResultOrError(response);
+    }
+
     public async update(id: number, person: Person): Promise<any> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido.');
