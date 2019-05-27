@@ -2,7 +2,7 @@ import { injectable, inject } from "inversify";
 import { StatusRepository } from "../repositories/StatusRepository";
 import { Status } from "../models/Status";
 import { TYPES } from "../../../config/types";
-import { getResultOrError } from "../../../utils/ApiReturn";
+import { getResultOrError, ApiReturn } from "../../../utils/ApiReturn";
 
 
 @injectable()
@@ -11,7 +11,7 @@ export class StatusService {
     @inject(TYPES.StatusRepository)
     private readonly statusRepository: StatusRepository;
 
-    public async save(status: Status): Promise<any> {
+    public async save(status: Status): Promise<ApiReturn> {
         var error = Status.validate(status);
 
         if (error)
@@ -22,7 +22,7 @@ export class StatusService {
         return getResultOrError(response);
     }
 
-    public async findAll(): Promise<any> {
+    public async findAll(): Promise<ApiReturn> {
         var response = await this.statusRepository.findAll();
 
         return getResultOrError(response);

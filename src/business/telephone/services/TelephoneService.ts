@@ -2,7 +2,7 @@ import { injectable, inject } from "inversify";
 import { TelephoneRepository } from "../repositories/TelephoneRepository";
 import { TelephoneType } from "../models/TelephoneType";
 import { TYPES } from "../../../config/types";
-import { getResultOrError } from "../../../utils/ApiReturn";
+import { getResultOrError, ApiReturn } from "../../../utils/ApiReturn";
 import { TelephonePerson } from '../models/TelephonePerson';
 
 
@@ -12,7 +12,7 @@ export class TelephoneService {
     @inject(TYPES.TelephoneRepository)
     private readonly telephoneRepository: TelephoneRepository;
 
-    public async saveTelephoneType(telephoneType: TelephoneType): Promise<any> {
+    public async saveTelephoneType(telephoneType: TelephoneType): Promise<ApiReturn> {
         var error = TelephoneType.validate(telephoneType);
 
         if (error)
@@ -23,7 +23,7 @@ export class TelephoneService {
         return getResultOrError(response);
     }
 
-    public async saveTelephonePerson(telephonePerson: TelephonePerson): Promise<any> {
+    public async saveTelephonePerson(telephonePerson: TelephonePerson): Promise<ApiReturn> {
         var error = TelephonePerson.validate(telephonePerson);
 
         if (error)
@@ -34,7 +34,7 @@ export class TelephoneService {
         return getResultOrError(response);
     }
 
-    public async findAll(): Promise<any> {
+    public async findAll(): Promise<ApiReturn> {
         var response = await this.telephoneRepository.findAll();
 
         return getResultOrError(response);

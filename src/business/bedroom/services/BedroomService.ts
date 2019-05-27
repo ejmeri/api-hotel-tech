@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "../../../config/types";
-import { getResultOrError } from "../../../utils/ApiReturn";
+import { getResultOrError, ApiReturn } from "../../../utils/ApiReturn";
 import { BedroomRepository } from '../repositories/BedroomRepository';
 import { Bedroom } from '../models/Bedroom';
 
@@ -11,13 +11,13 @@ export class BedroomService {
     @inject(TYPES.BedroomRepository)
     private readonly bedroomRepository: BedroomRepository;
 
-    public async findAll(): Promise<any> {
+    public async findAll(): Promise<ApiReturn> {
         var response = await this.bedroomRepository.findAll();
 
         return getResultOrError(response);
     }
 
-    public async findByTypeId(typeId: number): Promise<any> {
+    public async findByTypeId(typeId: number): Promise<ApiReturn> {
 
         if (typeId == null)
             throw getResultOrError(undefined, 'Tipo Id inválido');
@@ -27,7 +27,7 @@ export class BedroomService {
         return getResultOrError(response);
     }
 
-    public async findById(id: number): Promise<any> {
+    public async findById(id: number): Promise<ApiReturn> {
 
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido');
@@ -37,7 +37,7 @@ export class BedroomService {
         return getResultOrError(response);
     }
 
-    public async findByNumber(number: string): Promise<any> {
+    public async findByNumber(number: string): Promise<ApiReturn> {
 
         if (number == null)
             throw getResultOrError(undefined, 'Número inválido');
@@ -47,7 +47,7 @@ export class BedroomService {
         return getResultOrError(response);
     }
 
-    public async findByStatus(status: string): Promise<any> {
+    public async findByStatus(status: string): Promise<ApiReturn> {
 
         if (status == null)
             throw getResultOrError(undefined, 'Status inválido');
@@ -57,7 +57,7 @@ export class BedroomService {
         return getResultOrError(response);
     }
 
-    public async save(bedroom: Bedroom): Promise<any> {
+    public async save(bedroom: Bedroom): Promise<ApiReturn> {
         var error = Bedroom.validate(bedroom);
 
         if (error)
@@ -69,7 +69,7 @@ export class BedroomService {
     }
 
 
-    public async update(id: number, bedroom: Bedroom): Promise<any> {
+    public async update(id: number, bedroom: Bedroom): Promise<ApiReturn> {
         var error = Bedroom.validate(bedroom);
 
         if (error)

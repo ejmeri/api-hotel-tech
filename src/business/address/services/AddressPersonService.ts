@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "../../../config/types";
-import { getResultOrError } from "../../../utils/ApiReturn";
+import { getResultOrError, ApiReturn } from "../../../utils/ApiReturn";
 import { AddressPerson } from '../models/AddressPerson';
 import { AddressPersonRepository } from '../repositories/AddressPersonRepository';
 
@@ -11,7 +11,7 @@ export class AddressPersonService {
     @inject(TYPES.AddressPersonRepository)
     private readonly addressPersonRepository: AddressPersonRepository;
 
-    public async save(addressPerson: AddressPerson): Promise<any> {
+    public async save(addressPerson: AddressPerson): Promise<ApiReturn> {
         var error = AddressPerson.validate(addressPerson);
 
         if (error)

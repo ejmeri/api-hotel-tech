@@ -44,6 +44,13 @@ export class BookingController {
                     .catch(err => res.send(err).status(401));
             });
 
+        app.route('/bookings/paymentmethods')
+            .get((req: Request, res: Response) => {
+                this.bookingService.findPaymentMethods()
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
 
 
     }
