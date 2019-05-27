@@ -57,6 +57,12 @@ export class BedroomService {
         return getResultOrError(response);
     }
 
+    public async findBedroomTypes(): Promise<ApiReturn> {
+        var response = await this.bedroomRepository.findBedroomTypes();
+
+        return getResultOrError(response);
+    }
+
     public async save(bedroom: Bedroom): Promise<ApiReturn> {
         var error = Bedroom.validate(bedroom);
 

@@ -19,7 +19,7 @@ export class BedroomController {
                     .catch(err => res.send(err).status(401));
             });
 
-        app.route('/bedrooms/type/:typeId')
+        app.route('/bedrooms/types/:typeId')
             .get((req: Request, res: Response) => {
                 this.bedroomService.findByTypeId(req.params.typeId)
                     .then(ret => res.send(ret))
@@ -33,15 +33,22 @@ export class BedroomController {
                     .catch(err => res.send(err).status(401));
             });
 
-        app.route('/bedrooms/status/:status')
+        app.route('/bedrooms/statuses/:status')
             .get((req: Request, res: Response) => {
                 this.bedroomService.findByStatus(req.params.status)
                     .then(ret => res.send(ret))
                     .catch(err => res.send(err).status(401));
             });
 
-        app.route('/bedrooms')
+        app.route('/bedrooms/types')
             .get((req: Request, res: Response) => {
+                this.bedroomService.findBedroomTypes()
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
+        app.route('/bedrooms')
+            .post((req: Request, res: Response) => {
                 this.bedroomService.save(req.body as Bedroom)
                     .then(ret => res.send(ret))
                     .catch(err => res.send(err).status(401));

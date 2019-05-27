@@ -25,6 +25,11 @@ export class BedroomRepository {
         return await Bedroom.findOne({ include: [BedroomType], where: { status: status } });
     }
 
+    public async findBedroomTypes(): Promise<BedroomType[]> {
+        return await BedroomType.findAll();
+    }
+
+
     public async save(bedroom: Bedroom): Promise<Bedroom> {
         return await Bedroom.create(bedroom);
     }
