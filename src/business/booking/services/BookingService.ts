@@ -2,14 +2,14 @@ import { injectable, inject } from "inversify";
 import { BookingRepository } from "../repositories/BookingRepository";
 import { TYPES } from "../../../config/types";
 import { Booking } from "../models/Booking";
-import { getResultOrError } from "../../../utils/ApiReturn";
+import { getResultOrError, ApiReturn } from "../../../utils/ApiReturn";
 
 @injectable()
 export class BookingService {
     @inject(TYPES.BookingRepository)
     private readonly bookingRepository: BookingRepository;
 
-    public async save(booking: Booking): Promise<any> {
+    public async save(booking: Booking): Promise<ApiReturn> {
         var error = Booking.validate(booking);
 
         if (error)
@@ -21,7 +21,7 @@ export class BookingService {
     }
 
 
-    public async checkIn(id: number): Promise<any> {
+    public async checkIn(id: number): Promise<ApiReturn> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido');
 
@@ -30,7 +30,7 @@ export class BookingService {
         return getResultOrError(response);
     }
 
-    public async checkOut(id: number): Promise<any> {
+    public async checkOut(id: number): Promise<ApiReturn> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido');
 
@@ -39,11 +39,17 @@ export class BookingService {
         return getResultOrError(response);
     }
 
-    public async findById(id: number): Promise<any> {
+    public async findById(id: number): Promise<ApiReturn> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido');
 
         var response = await this.bookingRepository.findById(id);
+
+        return getResultOrError(response);
+    }
+
+    public async findPaymentMethods(): Promise<ApiReturn> {
+        var response = await this.bookingRepository.findPaymentMethods();
 
         return getResultOrError(response);
     }

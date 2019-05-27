@@ -1,7 +1,7 @@
 import { injectable, inject } from "inversify";
 import { Person } from "../models/Person";
 import { TYPES } from "../../../config/types";
-import { getResultOrError } from "../../../utils/ApiReturn";
+import { getResultOrError, ApiReturn } from "../../../utils/ApiReturn";
 import { PersonRepository } from "../repositories/PersonRepository";
 
 
@@ -11,7 +11,7 @@ export class PersonService {
     @inject(TYPES.PersonRepository)
     private readonly personRepository: PersonRepository;
 
-    public async save(person: Person): Promise<any> {
+    public async save(person: Person): Promise<ApiReturn> {
         var error = Person.validate(person);
 
         if (error)
@@ -22,7 +22,7 @@ export class PersonService {
         return getResultOrError(response);
     }
 
-    public async findById(id: number): Promise<any> {
+    public async findById(id: number): Promise<ApiReturn> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido.');
 
@@ -31,7 +31,7 @@ export class PersonService {
         return getResultOrError(response);
     }
 
-    public async findByDocument(document: string): Promise<any> {
+    public async findByDocument(document: string): Promise<ApiReturn> {
         if (document == null)
             throw getResultOrError(undefined, 'Documento inválido.');
 
@@ -40,12 +40,12 @@ export class PersonService {
         return getResultOrError(response);
     }
 
-    public async findAllOccupations(): Promise<any> {
+    public async findAllOccupations(): Promise<ApiReturn> {
         var response = await this.personRepository.findAllOccupations();
         return getResultOrError(response);
     }
 
-    public async update(id: number, person: Person): Promise<any> {
+    public async update(id: number, person: Person): Promise<ApiReturn> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido.');
 
