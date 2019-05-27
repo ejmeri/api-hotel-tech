@@ -1,5 +1,8 @@
-export default  {
+import { Op } from 'sequelize';
+
+export default {
   local: {
+    operatorsAliases: Op,
     dialect: 'mysql',
     database: 'wg_hotel',
     username: 'root',
@@ -7,7 +10,8 @@ export default  {
     host: 'localhost',
     port: 3306
   },
-  local_espm : {
+  local_espm: {
+    operatorsAliases: Op,
     dialect: 'mysql',
     database: 'wg_hotel',
     username: 'root',
@@ -15,7 +19,8 @@ export default  {
     host: 'localhost',
     port: 3306
   },
-  development : {
+  development: {
+    operatorsAliases: Op,
     dialect: 'postgres',
     database: 'd1g0lvra5ue0ct',
     username: 'cyabyyptsnpjcb',
