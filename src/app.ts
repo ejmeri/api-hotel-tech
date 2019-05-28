@@ -1,5 +1,6 @@
 // lib/app.ts
 import * as express from "express";
+import * as cors from "cors";
 import container from "./config/ioc";
 import { TYPES } from "./config/types";
 
@@ -24,6 +25,8 @@ class App {
         this.app.use(express.json());
         //support application/x-www-form-urlencoded post data
         this.app.use(express.urlencoded({ extended: false }));
+        // cors
+        this.app.use(cors());
 
         container.get<StatusController>(TYPES.StatusController).register(this.app);
         container.get<ControllerTeste>(TYPES.ControllerTeste).register(this.app);
