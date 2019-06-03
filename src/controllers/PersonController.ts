@@ -67,7 +67,7 @@ export class PersonController {
 
         app.route('/user')
             .get((req: Request, res: Response) => {
-                this.personService.saveUser(req.query.email)
+                this.personService.findUserByEmail(req.query.email)
                     .then(ret => res.send(ret))
                     .catch(err => res.send(err).status(401));
             });
