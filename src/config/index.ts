@@ -60,3 +60,14 @@ Booking.belongsTo(Person);
 Booking.belongsTo(Bedroom);
 
 
+Occupation.hasMany(Person);
+User.hasMany(Person);
+Person.hasMany(AddressPerson);
+Person.hasMany(TelephonePerson);
+Role.hasMany(Employee);
+PaymentMethod.hasMany(Booking);
+BedroomType.hasMany(Bedroom);
+BedroomType.hasMany(Bedroom);
+Person.hasMany(Booking);
+Bedroom.hasMany(Booking);
+
