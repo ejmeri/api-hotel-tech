@@ -70,3 +70,8 @@ pessoa
 
 
 
+
+
+## CORREÇÕES ## 
+
+ 1 - COLOCAR TIPO PESSOA EM USER

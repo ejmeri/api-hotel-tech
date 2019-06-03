@@ -40,6 +40,15 @@ export class PersonService {
         return getResultOrError(response);
     }
 
+    public async findByUserId(id: number): Promise<ApiReturn> {
+        if (id == null)
+            throw getResultOrError(undefined, 'Id inválido.');
+
+        var response = await this.personRepository.findByUserId(id);
+
+        return getResultOrError(response);
+    }
+
     public async findById(id: number): Promise<ApiReturn> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido.');

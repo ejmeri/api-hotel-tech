@@ -27,6 +27,9 @@ export class PersonRepository {
         return await Person.findOne({ where: { id: id } });
     }
 
+    public async findByUserId(id: number): Promise<Person> {
+        return await Person.findOne({ where: { userId: id } });
+    }
     public async findByDocument(document: string): Promise<Person> {
         return await Person.findOne({ where: { document: document } });
     }

@@ -30,6 +30,15 @@ export class PersonController {
                     .catch(err => (res.send(err).status(401)));
             });
 
+
+        app.route('/person/user/:id')
+            .get((req: Request, res: Response) => {
+                this.personService.findById(req.params.id)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
+
         app.route('/person/:id')
             .get((req: Request, res: Response) => {
                 this.personService.findById(req.params.id)
