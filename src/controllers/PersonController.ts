@@ -65,6 +65,13 @@ export class PersonController {
                     .catch(err => res.send(err).status(401));
             });
 
+        app.route('/user')
+            .get((req: Request, res: Response) => {
+                this.personService.saveUser(req.query.email)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
         app.route('/persons/occupations')
             .get((req: Request, res: Response) => {
                 this.personService.findAllOccupations()

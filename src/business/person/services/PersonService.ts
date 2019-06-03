@@ -34,6 +34,12 @@ export class PersonService {
         return getResultOrError(response);
     }
 
+    public async findUserByEmail(email: string): Promise<ApiReturn> {
+       var response = await this.personRepository.findUserByEmail(email);
+
+        return getResultOrError(response);
+    }
+
     public async findById(id: number): Promise<ApiReturn> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido.');
