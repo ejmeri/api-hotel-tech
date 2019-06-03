@@ -1,6 +1,7 @@
 import { injectable } from "inversify";
 import { Person } from "../models/Person";
 import { Occupation } from "../models/Occupation";
+import { User } from '../models/User';
 
 
 @injectable()
@@ -8,6 +9,10 @@ export class PersonRepository {
 
     public async save(people: Person): Promise<Person> {
         return await Person.create(people);
+    }
+
+    public async saveUser(user: User): Promise<User> {
+        return await User.create(user);
     }
 
     public async update(id: number, person: Person): Promise<any> {

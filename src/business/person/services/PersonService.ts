@@ -3,6 +3,7 @@ import { Person } from "../models/Person";
 import { TYPES } from "../../../config/types";
 import { getResultOrError, ApiReturn } from "../../../utils/ApiReturn";
 import { PersonRepository } from "../repositories/PersonRepository";
+import { User } from '../models/User';
 
 
 @injectable()
@@ -18,6 +19,17 @@ export class PersonService {
             throw getResultOrError(undefined, error);
 
         var response = await this.personRepository.save(person);
+
+        return getResultOrError(response);
+    }
+
+    public async saveUser(user: User): Promise<ApiReturn> {
+        var error = User.validate(user);
+
+        if (error)
+            throw getResultOrError(undefined, error);
+
+        var response = await this.personRepository.saveUser(user);
 
         return getResultOrError(response);
     }
