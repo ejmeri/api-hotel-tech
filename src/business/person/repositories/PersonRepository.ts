@@ -20,7 +20,7 @@ export class PersonRepository {
     }
 
     public async findUserByEmail(email: string): Promise<User> {
-        return await User.findOne({ where: { email: email } });
+        return await User.findOne({ where: { username: email } });
     }
 
     public async findById(id: number): Promise<Person> {
