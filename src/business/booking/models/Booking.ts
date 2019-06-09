@@ -42,11 +42,11 @@ export class Booking extends Model<Booking> {
 
     // @ForeignKey(() => PaymentMethod)
     // @Column
-    paymentMethodId: number;
+    PaymentMethodId: number;
 
-    personId: number;
+    PersonId: number;
 
-    bedroomId: number;
+    BedroomId: number;
 
     static validate(booking: Booking): string {
         if (booking.valueTotal == null)

@@ -22,7 +22,7 @@ export class AddressPerson extends Model<AddressPerson> {
 
     // @ForeignKey(() => Person)
     // @Column
-    personId: number;
+    PersonId: number;
 
     static validate(addressPerson: AddressPerson): string {
         if (addressPerson.number == null)
@@ -31,7 +31,7 @@ export class AddressPerson extends Model<AddressPerson> {
         if (addressPerson.zipcode == null)
             return "CEP inválido";
 
-        if (addressPerson.personId == null)
+        if (addressPerson.PersonId == null)
             return 'Pessoa inválida';
 
         return null;

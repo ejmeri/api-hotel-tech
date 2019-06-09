@@ -42,12 +42,12 @@ export class Person extends Model<Person> {
 
     // @ForeignKey(() => Occupation)
     // @Column
-    occupationId: number;
+    OccupationId: number;
 
 
     // @ForeignKey(() => User)
     // @Column
-    userId: number;
+    UserId: number;
 
     // @BelongsTo(() => Occupation)
     // occupation: Occupation;

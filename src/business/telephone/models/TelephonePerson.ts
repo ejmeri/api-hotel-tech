@@ -21,7 +21,7 @@ export class TelephonePerson extends Model<TelephonePerson> {
 
     // @ForeignKey(() => Person)
     // @Column
-    personId: number;
+    PersonId: number;
 
 
     // @BelongsTo(() => Occupation)

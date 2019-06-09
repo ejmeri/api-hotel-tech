@@ -21,7 +21,7 @@ export class Employee extends Model<Employee> {
 
     // @ForeignKey(() => Role)
     // @Column
-    roleId: number;
+    RoleId: number;
 
 
 
