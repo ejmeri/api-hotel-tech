@@ -32,6 +32,9 @@ export class Bedroom extends Model<Bedroom> {
         if (bedroom.number == null)
             return "Número inválido.";
 
+        if (bedroom.BedroomTypeId == null || bedroom.BedroomTypeId == 0)
+            return "Tipo de quarto inválido.";
+
         return null;
     }
 }

@@ -63,6 +63,15 @@ export class Booking extends Model<Booking> {
         if (booking.valueTotal < 0)
             return "Valor total inválido";
 
+        if (booking.PersonId == null || booking.PersonId == 0)
+            return "Pessoa inválida";
+
+        if (booking.BedroomId == null || booking.BedroomId == 0)
+            return "Quarto inválido";
+
+        if (booking.PaymentMethodId == null || booking.PaymentMethodId == 0)
+            return "Tipo de pagamento inválido";
+
         return null;
     }
 }

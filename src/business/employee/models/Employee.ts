@@ -34,7 +34,10 @@ export class Employee extends Model<Employee> {
 
         if (employee.password == null)
             return 'Senha inválida';
-        
+
+        if (employee.RoleId == null)
+            return 'Cargo inválido';
+
         return null;
     }
 }
