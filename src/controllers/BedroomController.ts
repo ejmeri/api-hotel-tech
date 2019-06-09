@@ -70,7 +70,7 @@ export class BedroomController {
 
         app.route('/bedrooms/status/:id/:status')
             .put((req: Request, res: Response) => {
-                this.bedroomService.update(req.params.id, req.params.status)
+                this.bedroomService.updateStatus(req.params.id, req.params.status)
                     .then(ret => res.send(ret))
                     .catch(err => res.send(err).status(401));
             });

@@ -103,6 +103,9 @@ export class BedroomService {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido');
 
+        if (status == null)
+            throw getResultOrError(undefined, 'Status inválido');
+
         var response = await this.bedroomRepository.updateStatus(id, status);
 
         return getResultOrError(response);
