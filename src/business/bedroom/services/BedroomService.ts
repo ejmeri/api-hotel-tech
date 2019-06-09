@@ -99,4 +99,13 @@ export class BedroomService {
         return getResultOrError(response);
     }
 
+    public async updateStatus(id: number, status: string): Promise<any> {
+        if (id == null)
+            throw getResultOrError(undefined, 'Id inválido');
+
+        var response = await this.bedroomRepository.updateStatus(id, status);
+
+        return getResultOrError(response);
+    }
+
 }
