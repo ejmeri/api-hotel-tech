@@ -99,6 +99,19 @@ export class BedroomService {
         return getResultOrError(response);
     }
 
+    public async updateTypeId(id: number, typeId: number): Promise<any> {
+        if (id == null)
+            throw getResultOrError(undefined, 'Id inválido');
+
+        if (typeId == null)
+            throw getResultOrError(undefined, 'Tipo de quarto inválido');
+
+        var response = await this.bedroomRepository.updateTypeId(id, typeId);
+
+        return getResultOrError(response);
+    }
+
+
     public async updateStatus(id: number, status: string): Promise<any> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido');

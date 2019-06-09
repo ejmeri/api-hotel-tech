@@ -68,7 +68,15 @@ export class BedroomController {
                     .catch(err => res.send(err).status(401));
             });
 
-        app.route('/bedrooms/status/:id/:status')
+        app.route('/bedrooms/:id/type/:typeId')
+            .put((req: Request, res: Response) => {
+                this.bedroomService.updateTypeId(req.params.id, req.params.typeId)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
+
+        app.route('/bedrooms/:id/status/:status')
             .put((req: Request, res: Response) => {
                 this.bedroomService.updateStatus(req.params.id, req.params.status)
                     .then(ret => res.send(ret))

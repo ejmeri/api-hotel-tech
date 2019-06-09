@@ -42,6 +42,10 @@ export class BedroomRepository {
         return await Bedroom.update({ bedroom }, { where: { id: id } });
     }
 
+    public async updateTypeId(id: number, typeId: number): Promise<any> {
+        return await Bedroom.update({ BedroomTypeId: typeId }, { where: { id: id } });
+    }
+
     public async updateStatus(id: number, status: string): Promise<any> {
         return await Bedroom.update({ status: status }, { where: { id: id } });
     }
