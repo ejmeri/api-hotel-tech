@@ -24,6 +24,10 @@ export class BookingRepository {
         return await Booking.findOne({ include: [{ model: Person }, { model: PaymentMethod }, { model: Bedroom, include: [BedroomType] }], where: { id: id } });
     }
 
+    public async findAll(): Promise<any> {
+        return await Booking.findOne({ include: [{ model: Person }, { model: PaymentMethod }, { model: Bedroom, include: [BedroomType] }] });
+    }
+
     public async findPaymentMethods(): Promise<PaymentMethod[]> {
         return await PaymentMethod.findAll();
     }

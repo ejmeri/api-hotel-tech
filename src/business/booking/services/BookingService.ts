@@ -48,6 +48,11 @@ export class BookingService {
         return getResultOrError(response);
     }
 
+    public async findAll(): Promise<ApiReturn> {
+        var response = await this.bookingRepository.findAll();
+        return getResultOrError(response);
+    }
+
     public async findPaymentMethods(): Promise<ApiReturn> {
         var response = await this.bookingRepository.findPaymentMethods();
 

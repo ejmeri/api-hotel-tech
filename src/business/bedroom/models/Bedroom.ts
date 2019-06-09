@@ -26,7 +26,7 @@ export class Bedroom extends Model<Bedroom> {
     // bedroomType: BedroomType;
 
     static validate(bedroom: Bedroom): string {
-        if (bedroom.dayPrice == null)
+        if (bedroom.dayPrice == null || bedroom.dayPrice < 0)
             return "Valor da diária inválido.";
 
         if (bedroom.number == null)

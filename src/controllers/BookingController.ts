@@ -14,7 +14,9 @@ export class BookingController {
     public register(app: Application): void {
         app.route('/bookings')
             .get((req: Request, res: Response) => {
-                res.send('Olá Mundo');
+                this.bookingService.findAll()
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
             })
 
             .post((req: Request, res: Response) => {
