@@ -17,8 +17,12 @@ export class BedroomRepository {
         return await Bedroom.findOne({  include: [BedroomType], where: { id: id } });
     }
 
-    public async findByTypeId(typeId: number): Promise<Bedroom> {
-        return await Bedroom.findOne({ include: [BedroomType], where: { bedroomTypeId: typeId } });
+    public async findByTypeId(typeId: number): Promise<Bedroom[]> {
+        return await Bedroom.findAll({ include: [BedroomType], where: { BedroomTypeId: typeId } });
+    }
+
+    public async findByAvailableAndTypeId(typeId: number): Promise<Bedroom[]> {
+        return await Bedroom.findAll({ include: [BedroomType], where: { BedroomTypeId: typeId, status: 'Disponível' } });
     }
 
     public async findByStatus(status: string): Promise<Bedroom> {

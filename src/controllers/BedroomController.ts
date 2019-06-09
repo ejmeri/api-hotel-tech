@@ -26,6 +26,13 @@ export class BedroomController {
                     .catch(err => res.send(err).status(401));
             });
 
+        app.route('/bedrooms/types/available/:typeId')
+            .get((req: Request, res: Response) => {
+                this.bedroomService.findByAvailableAndTypeId(req.params.typeId)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
         app.route('/bedrooms/number/:number')
             .get((req: Request, res: Response) => {
                 this.bedroomService.findByNumber(req.params.number)

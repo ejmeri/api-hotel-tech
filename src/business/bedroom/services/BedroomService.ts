@@ -27,6 +27,16 @@ export class BedroomService {
         return getResultOrError(response);
     }
 
+    public async findByAvailableAndTypeId(typeId: number): Promise<ApiReturn> {
+        if (typeId == null)
+            throw getResultOrError(undefined, 'Tipo Id inválido');
+
+        var response = await this.bedroomRepository.findByAvailableAndTypeId(typeId);
+
+        return getResultOrError(response);
+    }
+
+
     public async findById(id: number): Promise<ApiReturn> {
 
         if (id == null)
