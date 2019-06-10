@@ -9,8 +9,9 @@ import { ControllerTeste } from '../controllers/ControllerTeste';
 import { StatusController } from '../controllers/StatusController';
 import { PersonController } from '../controllers/PersonController';
 import { EmployeeController } from '../controllers/EmployeeController';
-import { BedroomController } from '../controllers/BedroomController'; 
+import { BedroomController } from '../controllers/BedroomController';
 import { BookingController } from '../controllers/BookingController';
+import { ProductController } from '../controllers/ProductController';
 
 
 // SERVICES
@@ -21,6 +22,7 @@ import { AddressPersonService } from '../business/address/services/AddressPerson
 import { BedroomService } from '../business/bedroom/services/BedroomService';
 import { EmployeeService } from '../business/employee/services/EmployeeService';
 import { BookingService } from '../business/booking/services/BookingService';
+import { ProductService } from '../business/products/services/ProductService';
 
 
 // REPOSITORIES
@@ -31,7 +33,7 @@ import { AddressPersonRepository } from '../business/address/repositories/Addres
 import { BedroomRepository } from '../business/bedroom/repositories/BedroomRepository';
 import { EmployeeRepository } from '../business/employee/repositories/EmployeeRepository';
 import { BookingRepository } from '../business/booking/repositories/BookingRepository';
-
+import { ProductRepository } from '../business/products/repositories/ProductRepository';
 
 const container = new Container();
 
@@ -42,6 +44,7 @@ container.bind<PersonController>(TYPES.PersonController).to(PersonController);
 container.bind<EmployeeController>(TYPES.EmployeeController).to(EmployeeController);
 container.bind<BedroomController>(TYPES.BedroomController).to(BedroomController);
 container.bind<BookingController>(TYPES.BookingController).to(BookingController);
+container.bind<ProductController>(TYPES.ProductController).to(ProductController);
 
 // RESOLVER SERVICES
 container.bind<StatusService>(TYPES.StatusService).to(StatusService);
@@ -51,6 +54,7 @@ container.bind<AddressPersonService>(TYPES.AddressPersonService).to(AddressPerso
 container.bind<BedroomService>(TYPES.BedroomService).to(BedroomService);
 container.bind<EmployeeService>(TYPES.EmployeeService).to(EmployeeService);
 container.bind<BookingService>(TYPES.BookingService).to(BookingService);
+container.bind<ProductService>(TYPES.ProductService).to(ProductService);
 
 // RESOLVE REPOSITORIES
 container.bind<StatusRepository>(TYPES.StatusRepository).to(StatusRepository);
@@ -60,5 +64,6 @@ container.bind<AddressPersonRepository>(TYPES.AddressPersonRepository).to(Addres
 container.bind<BedroomRepository>(TYPES.BedroomRepository).to(BedroomRepository);
 container.bind<EmployeeRepository>(TYPES.EmployeeRepository).to(EmployeeRepository);
 container.bind<BookingRepository>(TYPES.BookingRepository).to(BookingRepository);
+container.bind<ProductRepository>(TYPES.ProductRepository).to(ProductRepository);
 
 export default container;

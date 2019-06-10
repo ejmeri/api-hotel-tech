@@ -27,5 +27,10 @@ export const TYPES = {
 
     BookingController: Symbol('BookingController'),
     BookingService: Symbol('BookingService'),
-    BookingRepository: Symbol('BookingRepository')
+    BookingRepository: Symbol('BookingRepository'),
+
+    
+    ProductController: Symbol('ProductController'),
+    ProductService: Symbol('ProductService'),
+    ProductRepository: Symbol('ProductRepository')
 }

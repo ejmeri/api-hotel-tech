@@ -17,8 +17,8 @@ import { Booking } from '../business/booking/models/Booking';
 import { PaymentMethod } from '../business/payment/models/PaymentMethod';
 import { BedroomType } from '../business/bedroom/models/BedroomType';
 import { Bedroom } from '../business/bedroom/models/Bedroom';
-import { Product } from '../business/products/bedroom/models/Product';
-import { ProductBedroom } from '../business/products/bedroom/models/ProductBedroom';
+import { Product } from '../business/products/models/Product';
+import { ProductBedroom } from '../business/products/models/ProductBedroom';
 
 export const sequelize = new Sequelize({
   operatorsAliases: Op,
@@ -51,8 +51,6 @@ sequelize.addModels([Product]);
 sequelize.addModels([ProductBedroom]);
 
 
-
-Product.belongsTo(Product);
 Person.belongsTo(Occupation);
 Person.belongsTo(User);
 AddressPerson.belongsTo(Person);
@@ -63,9 +61,12 @@ Booking.belongsTo(PaymentMethod);
 Bedroom.belongsTo(BedroomType);
 Booking.belongsTo(Person);
 Booking.belongsTo(Bedroom);
+ProductBedroom.belongsTo(Bedroom);
+ProductBedroom.belongsTo(Product);
 
 
 Product.hasMany(ProductBedroom);
+Bedroom.hasMany(ProductBedroom);
 Occupation.hasMany(Person);
 User.hasMany(Person);
 Person.hasMany(AddressPerson);
