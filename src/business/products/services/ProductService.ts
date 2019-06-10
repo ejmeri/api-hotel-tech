@@ -23,6 +23,17 @@ export class ProductService {
         return getResultOrError(response);
     }
 
+    public async update(id: number, product: Product): Promise<ApiReturn> {
+        var error = Product.validate(product);
+
+        if (error)
+            throw getResultOrError(undefined, error);
+
+        var response = await this.productRepository.update(id, product);
+
+        return getResultOrError(response);
+    }
+
     public async saveProductBedroom(productBedroom: ProductBedroom): Promise<ApiReturn> {
         var error = ProductBedroom.validate(productBedroom);
 

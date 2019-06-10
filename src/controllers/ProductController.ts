@@ -24,6 +24,13 @@ export class ProductController {
                 this.productService.save(req.body as Product)
                     .then(ret => res.send(ret))
                     .catch(err => res.send(err).status(401));
+            })
+
+        app.route('/products/:id')
+            .put((req: Request, res: Response) => {
+                this.productService.update(req.params.id, req.body as Product)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
             });
 
 

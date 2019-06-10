@@ -9,6 +9,10 @@ export class ProductRepository {
         return await Product.create(product);
     }
 
+    public async update(id: number, product: Product): Promise<any> {
+        return await Product.update({ product }, { where: { id: id } });
+    }
+
     public async findAll(): Promise<Product[]> {
         return await Product.findAll();
     }
