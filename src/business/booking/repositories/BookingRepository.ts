@@ -29,7 +29,7 @@ export class BookingRepository {
     }
 
     public async findAll(): Promise<Booking[]> {
-        return await Booking.findAll({ include: [{ model: Person }, { model: PaymentMethod }, { model: Bedroom, include: [BedroomType] }] });
+        return await Booking.findAll({ include: [{ model: Person }, { model: PaymentMethod }, { model: Bedroom, include: [BedroomType] }] , where: { checkOut: false } });
     }
 
     public async findPaymentMethods(): Promise<PaymentMethod[]> {
