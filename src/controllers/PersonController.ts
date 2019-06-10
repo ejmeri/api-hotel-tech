@@ -60,6 +60,13 @@ export class PersonController {
                     .catch(err => res.send(err).status(401));
             });
 
+        app.route('/person/:id/status/:status')
+            .put((req: Request, res: Response) => {
+                this.personService.updateStatus(req.params.id, req.params.status)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
         app.route('/telephone')
             .post((req: Request, res: Response) => {
                 this.telephoneService.saveTelephonePerson(req.body as TelephonePerson)

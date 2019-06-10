@@ -21,6 +21,21 @@ export class BookingService {
     }
 
 
+    public async updateBooking(id: number, endDate: Date, paymentMethodId: number): Promise<any> {
+        if (id == null)
+            throw getResultOrError(undefined, 'Id inválido');
+
+        if (endDate == null)
+            throw getResultOrError(undefined, 'Data inválida');
+        
+        if (paymentMethodId == null || paymentMethodId == 0)
+            throw getResultOrError(undefined,  'Meio de pagamento inválido');
+
+        var response = await this.bookingRepository.updateBooking(id, endDate, paymentMethodId);
+
+        return getResultOrError(response);
+    }
+
     public async checkIn(id: number): Promise<ApiReturn> {
         if (id == null)
             throw getResultOrError(undefined, 'Id inválido');

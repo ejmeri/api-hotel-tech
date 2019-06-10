@@ -35,7 +35,7 @@ export class PersonService {
     }
 
     public async findUserByEmail(email: string): Promise<ApiReturn> {
-       var response = await this.personRepository.findUserByEmail(email);
+        var response = await this.personRepository.findUserByEmail(email);
 
         return getResultOrError(response);
     }
@@ -82,6 +82,19 @@ export class PersonService {
             return getResultOrError(undefined, error);
 
         var response = await this.personRepository.update(id, person);
+
+        return getResultOrError(response);
+    }
+
+    public async updateStatus(id: number, status: string): Promise<ApiReturn> {
+        if (id == null)
+            throw getResultOrError(undefined, 'Id inválido.');
+
+        if (status == null)
+            throw getResultOrError(undefined, 'Status inválido.');
+
+
+        var response = await this.personRepository.updateStatus(id, status);
 
         return getResultOrError(response);
     }

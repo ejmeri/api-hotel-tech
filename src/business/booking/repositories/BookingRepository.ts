@@ -16,6 +16,10 @@ export class BookingRepository {
         return await Booking.update({ checkIn: checkIn, checkInDate: checkInDate }, { where: { id: id } });
     }
 
+    public async updateBooking(id: number, endDate: Date, paymentMethodId: number): Promise<any> {
+        return await Booking.update({ EndDate: endDate, PaymentMethodId: paymentMethodId }, { where: { id: id } });
+    }
+
     public async checkOut(id: number, checkOut: boolean, checkOutDate: Date): Promise<any> {
         return await Booking.update({ checkOut: checkOut, checkOutDate: checkOutDate }, { where: { id: id } });
     }

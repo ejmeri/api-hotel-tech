@@ -19,6 +19,10 @@ export class PersonRepository {
         return await Person.update({ person }, { where: { id: id } });
     }
 
+    public async updateStatus(id: number, status: string): Promise<any> {
+        return await Person.update({ status: status }, { where: { id: id } });
+    }
+
     public async findUserByEmail(email: string): Promise<User> {
         return await User.findOne({ where: { username: email } });
     }

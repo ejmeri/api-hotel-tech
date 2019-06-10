@@ -32,6 +32,13 @@ export class BookingController {
                     .catch(err => res.send(err).status(401));
             });
 
+        app.route('/bookings/:id/enddate/:endDate/paymentmethodid/:paymentMethodId')
+            .put((req: Request, res: Response) => {
+                this.bookingService.updateBooking(req.params.id, req.params.endDate, req.params.paymentMethodId)
+                    .then(ret => res.send(ret))
+                    .catch(err => res.send(err).status(401));
+            });
+
         app.route('/bookings/:id/checkout')
             .put((req: Request, res: Response) => {
                 this.bookingService.checkOut(req.params.id)
