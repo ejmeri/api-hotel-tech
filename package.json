@@ -21,7 +21,7 @@
   "homepage": "https://github.com/ejmeri/api-hotel-tech-repository#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "inversify": "^5.0.1",
     "pg": "^7.9.0",
     "reflect-metadata": "^0.1.13",
